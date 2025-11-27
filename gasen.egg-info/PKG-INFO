@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: gasen
+Version: 0.1.0
+Summary: Genetic Algorithm based Selective Neural Network Ensemble
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scikit-learn
+Requires-Dist: matplotlib
+Dynamic: license-file
+
+# GASEN
+Based on the work from the [Genetic Algorithm based Selective Neural Network Ensemble](https://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/ijcai01.pdf) paper. 
+
+Implemented within Python.

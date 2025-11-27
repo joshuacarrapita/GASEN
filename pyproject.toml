@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gasen"
+version = "0.1.0"
+description = "Genetic Algorithm based Selective Neural Network Ensemble"
+readme = "README.md"
+requires-python = ">=3.11"
+
+# --- Ermittelte Abhängigkeiten ---
+dependencies = [
+    "numpy",
+    "pandas",
+    "scikit-learn",
+    "matplotlib"
+]
+
+# --- Paket-Discovery ---
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+    "gasen*",   # Library Paket
+    "scripts*"  # Scripts Paket
+]
+
+exclude = [
+    "venv*",
+    "networks*"
+]

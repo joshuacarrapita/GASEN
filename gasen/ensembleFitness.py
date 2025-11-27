@@ -3,7 +3,7 @@ def ensemble_fitness(weights, models, inputs, targets, value):
     import sklearn
     from sklearn import linear_model
     from sklearn import metrics
-    from weightedEnsemble import weighted_ensemble
+    from gasen.weightedEnsemble import weighted_ensemble
 
     fitness = []
 

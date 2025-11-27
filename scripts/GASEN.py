@@ -11,10 +11,10 @@ import sklearn
 import matplotlib.pyplot as pyplot
 from sklearn import linear_model
 
-from loadData import load_data
-from ensembleFitness import ensemble_fitness
-from weightedEnsemble import weighted_ensemble
-import GA
+from gasen.loadData import load_data
+from gasen.ensembleFitness import ensemble_fitness
+from gasen.weightedEnsemble import weighted_ensemble
+import gasen.GA as GA
 
 UPPER_BOUND = 1
 LOWER_BOUND = 0

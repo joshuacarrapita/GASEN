@@ -39,44 +39,45 @@ models = load_data()
 objective_function = lambda w: ensemble_fitness(w, models, x_test, y_test, 'mse')
 
 # Set Genetic Algorithm parameters
-sol_per_pop = 8
-num_parents_mating = 4
+sol_per_pop = 8 # 8
+num_parents_mating = 4 # 4
 
 # Defining population size
-pop_size = (sol_per_pop, len(models))
+pop_size = (sol_per_pop, len(models)) # 8 x 100
 # Creating the initial population
-new_population = np.random.uniform(low=0, high=1, size=pop_size)
-print(new_population)
+new_population = np.random.uniform(low=0, high=1, size=pop_size) # 8 x 100
+print(f'New popoulation {new_population}')
 
 num_generations = 100
 
 for generation in range(num_generations):
     print("Generation: ", generation)
     # Measuring the fitness of each chromosome in the population
-    fitness = GA.cal_pop_fitness(objective_function, new_population)
+    fitness = GA.cal_pop_fitness(objective_function, new_population) # 8 x 1
 
     # Selecting the best parents in the population for mating
     parents = GA.select_mating_pool(new_population, fitness, num_parents_mating)
 
     # Generating next generation using crossover
-    offspring_crossover = GA.crossover(parents, offspring_size=(pop_size[0]-parents.shape[0], len(models)))
+    offspring_crossover = GA.crossover(parents, offspring_size=(pop_size[0]-parents.shape[0], len(models))) # parents = 4 x 100, offspring_size = (8-4 = 4, 100), len(models) = 100
 
     # Adding some variations to the offspring using mutation
-    offspring_mutation = GA.mutation(offspring_crossover)
+    offspring_mutation = GA.mutation(offspring_crossover) # 8 - 4 = 4 x 100
 
     # Creating the new population based on the parents and offspring
-    new_population[0:parents.shape[0], :] = parents
-    new_population[parents.shape[0]:, :] = offspring_mutation
+    new_population[0:parents.shape[0], :] = parents # 8[0:4,:] x 100
+    new_population[parents.shape[0]:, :] = offspring_mutation # 8[4:8,:] x 100
 
     # The best result in the current iteration
-    print("NOTHING")
+    print(f'Best weights: {new_population[0]}')
 
 # Get the best solution after all generations
 fitness = GA.cal_pop_fitness(objective_function, new_population)
 # Return the index of that solution and corresponding best fitness
 best_match_idx = np.where(fitness == np.min(fitness))
-print(best_match_idx)
-print(fitness)
+print(f'Best weights: {new_population[best_match_idx]}')
+print(f'At index: {best_match_idx} with fitness {fitness[best_match_idx]}')
+print(f'All fitness: {fitness}')
 # Return weights
 
 # Display optimised network ensemble accuracy details

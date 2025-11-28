@@ -8,10 +8,10 @@ def ensemble_fitness(weights, models, inputs, targets, value):
     fitness = []
 
     # Normalise weights
-    weights = sklearn.preprocessing.normalize(weights, axis=1, norm='l1')
+    weights = sklearn.preprocessing.normalize(weights, axis=1, norm='l1')# 8 x 100
 
     for i in range(len(weights)):
-        predictionsSum = weighted_ensemble(weights[i-1], models, inputs)
+        predictionsSum = weighted_ensemble(weights[i], models, inputs) # x 100 * 200
 
         # Calculating bias and variance for use in error if selected
         bias = (np.mean(predictionsSum)-np.mean(targets))**2

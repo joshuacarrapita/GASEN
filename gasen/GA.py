@@ -35,16 +35,16 @@ def crossover(parents, offspring_size):
     return offspring
 
 def mutation(offspring_crossover):
-    # offspring_crossover.shape = (8 - 4 = 4 x 100)
+    # offspring_crossover_crossover.shape = (8 - 4 = 4 x 100)
     # Mutation changes genes in each offspring randomly.
     mutation_rate = 0.1
-    for i in range(offspring.shape[0]):
+    for i in range(offspring_crossover.shape[0]):
         # Iterate over all genes (models)
-        for j in range(offspring.shape[1]):
+        for j in range(offspring_crossover.shape[1]):
              if np.random.random() < mutation_rate:
                 # Add random noise
                 random_value = np.random.uniform(-0.1, 0.1)
-                offspring[i, j] += random_value
+                offspring_crossover[i, j] += random_value
     
     # Clip to keep weights valid [0, 1]
-    return np.clip(offspring, 0.0, 1.0) 
+    return np.clip(offspring_crossover, 0.0, 1.0) 
